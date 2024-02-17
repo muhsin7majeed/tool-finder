@@ -1,12 +1,22 @@
-import Link from "next/link";
+"use client";
+import { Link } from "@chakra-ui/next-js";
+import { Flex, Button, Box, Heading } from "@chakra-ui/react";
 
 export default function Navbar() {
   return (
     <>
-      <nav style={{ display: "flex", justifyContent: "space-between", marginBottom: "2rem" }}>
-        <Link href="/">Tool Finder</Link>
+      <nav>
+        <Box>
+          <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+            <Link href="/">
+              <Heading fontSize="1.5rem">Tool Finder</Heading>
+            </Link>
 
-        <button>Admin</button>
+            <Link href="/admin">
+              <Button>Admin</Button>
+            </Link>
+          </Flex>
+        </Box>
       </nav>
     </>
   );

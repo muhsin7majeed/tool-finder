@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { Providers } from "./providers";
+import { Box } from "@chakra-ui/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,16 +19,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={inter.className}
-        style={{
-          padding: "1rem 3rem",
-        }}
-      >
-        <header>
-          <Navbar />
-        </header>
-        {children}
+      <body>
+        <Providers>
+          <Box px={["1rem", "2rem", "5rem"]} maxW="1440px" m="auto">
+            <header>
+              <Navbar />
+            </header>
+
+            {children}
+          </Box>
+        </Providers>
       </body>
     </html>
   );
