@@ -1,8 +1,12 @@
 "use client";
 import { Link } from "@chakra-ui/next-js";
 import { Flex, Button, Box, Heading } from "@chakra-ui/react";
+import { signOut } from "next-auth/react";
 
 export default function Navbar() {
+  const handleLogout = () => {
+    signOut();
+  };
   return (
     <>
       <nav>
@@ -14,6 +18,7 @@ export default function Navbar() {
 
             <Link href="/admin">
               <Button>Admin</Button>
+              <Button onClick={handleLogout}>Logout</Button>
             </Link>
           </Flex>
         </Box>
